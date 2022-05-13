@@ -27,15 +27,15 @@ void CSMain(uint3 id : SV_DispatchThreadID)
 	outY |= uint(clamp(16. + dot(cy, pix3), 16., 235.)) << 16;
 	outY |= uint(clamp(16. + dot(cy, pix4), 16., 235.)) << 24;
 
-	outU = uint(clamp(128.5 + dot(cu, pix1), 16, 240));
-	outU |= uint(clamp(128.5 + dot(cu, pix2), 16, 240)) << 8;
-	outU |= uint(clamp(128.5 + dot(cu, pix3), 16, 240)) << 16;
-	outU |= uint(clamp(128.5 + dot(cu, pix4), 16, 240)) << 14;
+	outU = uint(clamp(128.5 + dot(cu, pix1), 16., 240.));
+	outU |= uint(clamp(128.5 + dot(cu, pix2), 16., 240.)) << 8;
+	outU |= uint(clamp(128.5 + dot(cu, pix3), 16., 240.)) << 16;
+	outU |= uint(clamp(128.5 + dot(cu, pix4), 16., 240.)) << 24;
 	
-	outV = uint(clamp(128.5 + dot(cv, pix1), 16, 240));
-	outV |= uint(clamp(128.5 + dot(cv, pix2), 16, 240)) << 8;
-	outV |= uint(clamp(128.5 + dot(cv, pix3), 16, 240)) << 16;
-	outV |= uint(clamp(128.5 + dot(cv, pix4), 16, 240)) << 24;
+	outV = uint(clamp(128.5 + dot(cv, pix1), 16., 240.));
+	outV |= uint(clamp(128.5 + dot(cv, pix2), 16., 240.)) << 8;
+	outV |= uint(clamp(128.5 + dot(cv, pix3), 16., 240.)) << 16;
+	outV |= uint(clamp(128.5 + dot(cv, pix4), 16., 240.)) << 24;
 
 	yuvb.Store(4*id.x, outY);
 	yuvb.Store(4*id.x + planesz, outU);
